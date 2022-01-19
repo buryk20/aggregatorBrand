@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+$font: "Open Sans", sans-serif;
+$mainColor: #3f8483;
+$colorBtn: #246566;
+$colorWhite: #ffffff;
+$backgroundColorNav: #8bbfbb;
+$backgroundColorNavBtnAct: #f7f9fa;
+$borderRadius: 8px;
+
+//mixin
+
+@mixin btnPlus {
+  width: 24px;
+  height: 24px;
+  background-color: $mainColor;
+  color: $colorWhite;
+  border-radius: $borderRadius;
+  cursor: pointer;
+}
+
+@mixin blockShadow {
+}
+
+@mixin navBtn {
+  height: 31px;
+  padding: 0 8px;
+  background-color: $backgroundColorNav;
+  border-radius: $borderRadius;
+  border-color: $backgroundColorNav;
+  font-size: 16px;
+  color: $colorWhite;
+}
+
+@mixin navBtnAct {
+  background-color: $backgroundColorNavBtnAct;
+  color: $backgroundColorNav;
+}
