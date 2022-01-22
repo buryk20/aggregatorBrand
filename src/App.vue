@@ -24,6 +24,6 @@ export default {
 <style lang="scss" scoped>
 .brand-markup {
   font-family: $font;
-  
+  @include contentGrid;
 }
 </style>

@@ -6,6 +6,8 @@ $colorWhite: #ffffff;
 $backgroundColorNav: #8bbfbb;
 $backgroundColorNavBtnAct: #f7f9fa;
 $borderRadius: 8px;
+$magButt: 16px;
+$colorBlack: #202020;
 
 //mixin
 
@@ -15,6 +17,7 @@ $borderRadius: 8px;
   background-color: $mainColor;
   color: $colorWhite;
   border-radius: $borderRadius;
+  position: relative;
   cursor: pointer;
 }
 
@@ -36,12 +39,46 @@ $borderRadius: 8px;
   color: $mainColor;
 }
 
-@mixin  marginCentre {
+@mixin marginCentre {
   margin-left: auto;
   margin-right: auto;
 }
 
 @mixin contentGrid {
-  max-width:  1316px;
+  max-width: 1316px;
   width: 100%;
+}
+
+@mixin magCent {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin flexSpasBit {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexCent {
+  display: flex;
+  align-items: center;
+}
+
+@mixin dashHorizon {
+  width: 14px;
+  height: 2px;
+  position: absolute;
+  top: 11px;
+  left: 5px;
+  transition: 0.3s ease-out;
+}
+
+@mixin dashVertical {
+  width: 14px;
+  height: 2px;
+  position: absolute;
+  top: 11px;
+  left: 5px;
+  transform: rotate(90deg);
+  transition: 0.3s ease-out;
 }

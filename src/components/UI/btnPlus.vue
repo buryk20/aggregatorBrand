@@ -11,23 +11,12 @@ export default {
   @include btnPlus;
   position: relative;
   &__dash-left {
-    width: 14px;
-    height: 2px;
-    position: absolute;
-    top: 11px;
-    left: 5px;
+    @include dashHorizon;
     background-color: $colorWhite;
-    transition: 0.3s ease-out;
   }
   &__dash-right {
-    width: 14px;
-    height: 2px;
-    position: absolute;
-    top: 11px;
-    left: 5px;
+    @include dashVertical;
     background-color: $colorWhite;
-    transform: rotate(90deg);
-    transition: 0.3s ease-out;
   }
   &:hover &__dash-left {
     transform: rotate(90deg);

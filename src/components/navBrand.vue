@@ -1,22 +1,22 @@
 <template>
-<div>
-  <div class="nav-brand-markup">
-    <div  class="nav-brand-markup__wrp">
-      <button
-        v-for="(navMargin, index) of navMargins"
-        :key="navMargin.id"
-        @click="click(index)"
-        :class="{ activNavBtn: index === currentId }"
-        class="nav-brand-markup__btn"
-      >
-        {{ navMargin.title }}
-      </button>
-    </div>
+  <div>
+    <router-link :to="{ name: 'test2' }">
+      <div class="nav-brand-markup">
+        <div class="nav-brand-markup__wrp">
+          <button
+            v-for="(navMargin, index) of navMargins"
+            :key="navMargin.id"
+            @click="click(index)"
+            :class="{ activNavBtn: index === currentId }"
+            class="nav-brand-markup__btn"
+          >
+            {{ navMargin.title }}
+          </button>
+        </div>
+      </div>
+    </router-link>
+    <router-view> </router-view>
   </div>
-  <router-link :to="{ name: 'test'}">
-                    <p>Слайдер</p>
-       </router-link>
-</div>
 </template>
 
 <script>
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     click(btnId) {
-      console.log(btnId);
+    
       if (this.currentId === btnId) {
         this.currentId = Number.NEGATIVE_INFINITY;
         this.replayCheck = btnId;
@@ -52,6 +52,9 @@ export default {
 .nav-brand-markup {
   max-width: 1200px;
   width: 100%;
+  padding-top: 15px;
+  margin-bottom: 20px;
+  padding-left: 63px;
   @include marginCentre;
   &__wrp {
     height: 35px;

@@ -1,4 +1,6 @@
-import test from "../components/test.vue";
+import exportMargin from "../components/exportMargin.vue";
+import test2 from "../components/test2.vue";
+import navBrand from "../components/navBrand.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -13,9 +15,19 @@ const routesWithPrefix = (prefix, routes) => {
 
 const routes = [
   {
-    path: "/test",
-    name: "test",
-    component: test,
+    path: "/",
+    name: "exportMargin",
+    component: exportMargin,
+  },
+  {
+    path: "/test2",
+    name: "test2",
+    component: test2,
+  },
+  {
+    path: "/test/:id",
+    name: "navBrand",
+    component: navBrand,
   },
   // {
   //   path: '/about',
