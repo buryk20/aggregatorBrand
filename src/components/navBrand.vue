@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     click(btnId) {
-    
+
       if (this.currentId === btnId) {
         this.currentId = Number.NEGATIVE_INFINITY;
         this.replayCheck = btnId;
