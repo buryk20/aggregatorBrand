@@ -50,6 +50,7 @@ export default {
       this.isActiveExport = true
       this.isActivecategory = false
       this.isActiveBrand = false
+
     },
     clickBrand() {
       this.isActiveExport = false
