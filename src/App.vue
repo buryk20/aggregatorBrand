@@ -25,5 +25,6 @@ export default {
 .brand-markup {
   font-family: $font;
   @include contentGrid;
+  @include marginCentre;
 }
 </style>

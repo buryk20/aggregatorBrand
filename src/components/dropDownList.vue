@@ -7,12 +7,14 @@
       <!-- </div> -->
       <div class="drop-dawn-list__wrp-list-container">
         <ul class="drop-dawn-list__list">
-          <li
+          <tree-item v-for="item of exportMargins" :key="item.id" :value="item">
+          </tree-item>
+          <!-- <li
             v-for="(exportMargin, index) of exportMargins"
             :key="exportMargin.id"
             class="drop-dawn-list__wrp-li"
           >
-            <div class="drop-dawn-list__wrp-li-btn-wrp asf">
+            <div class="drop-dawn-list__wrp-li-btn-wrp">
               <button @click="click(index)" class="drop-dawn-list__list-btn">
                 <span
                   :class="{ activBtn: index === currentId && examination }"
@@ -24,7 +26,7 @@
             </div>
             <ul
               class="drop-dawn-list__none"
-              :class="{ activList: index === currentId && examination }"
+              :class="{ activList: index === currentId }"
             >
               <li
                 v-if="exportMargin.export != undefined"
@@ -55,7 +57,7 @@
                 Нет экспортов
               </li>
             </ul>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -63,20 +65,22 @@
 </template>
 
 <script>
+import treeItem from './treeItem.vue';
 export default {
     name: "dropDownList",
+    components:{treeItem},
     data() {
       return {
         exportMargins: [
-            {id:Math.round(Math.random() * (1 - 200) + 1), title: "Обычный экспорт", export: "li Обычный экспорт", export1: "li1 Обычный экспорт", export2: "li2 Обычный экспорт" },
-            {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт prom", export: "li экспорт prom", export2: "li Обычный экспорт"},
-            {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka", export: "li экспорт rozetka"},
+            {id:Math.round(Math.random() * (1 - 200) + 1), title: "Обычный экспорт", children: ["li Обычный экспорт", "li1 Обычный экспорт", "li2 Обычный экспорт"]},
+            {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт prom", children: ["li Обычный экспорт", "li1 Обычный экспорт"]},
+            {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka", children: ["li розетка"]},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"}, 
-            {id:Math.round(Math.random() * (1 - 200) + 1), title: "Обычный экспорт", export: "li Обычный экспорт", export2: "li Обычный экспорт" },
+            {id:Math.round(Math.random() * (1 - 200) + 1), title: "Обычный экспорт", children: ["li Обычный экспорт", "li1 Обычный экспорт"]},
         ],
         isActive: false,
         currentId: -1,
@@ -86,13 +90,11 @@ export default {
     methods: {
         click(btnId){
             if (this.currentId === btnId) {
-                console.log(btnId);
                 this.currentId = Number.NEGATIVE_INFINITY;
                 this.examination = this.btnId
                 
             } else {
                 this.currentId = btnId;
-                console.log(btnId);
                 this.examination = Number.NEGATIVE_INFINITY;
                 this.isActive = true
                 // console.log(this.examination);
@@ -102,7 +104,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .drop-dawn-list {
   width: 449px;
   overflow: hidden;
@@ -124,9 +126,7 @@ export default {
     width: 449px;
     max-width: 100%;
     position: relative;
-    font-size: 17px;
-    text-transform: uppercase;
-    color: $colorBlack;
+    @include textUpper;
     border: 1px solid $backgroundColorNav;
     border-top: 0;
     overflow: auto;
@@ -136,8 +136,7 @@ export default {
     padding-left: 14px;
   }
   &__list {
-    padding-left: 7px;
-    border-left: 1px solid $mainColor;
+    border-left: 1px solid $backgroundColorNav;
   }
   &__list-btn {
     margin-right: 8px;
@@ -149,14 +148,25 @@ export default {
     display: flex;
     flex-direction: column;
     position: relative;
-    &::after {
+    padding-left: 8px;
+    &::before {
       content: "";
       position: absolute;
       width: 7px;
       height: 1px;
-      left: -7px;
+      left: 0;
       top: 31px;
       background-color: $backgroundColorNav;
+    }
+
+    &:last-child::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      top: 32px;
+      bottom: 0;
+      left: -1px;
+      background-color: $colorWhite;
     }
   }
   &__list-btn-line-virtical {
@@ -210,8 +220,9 @@ export default {
     padding-left: 43px;
     position: relative;
     @include flexCent;
-    border-left: 1px solid #3f8483;
+    border-left: 1px solid $backgroundColorNav;
     transition: 0.3s ease-in;
+
     &::before {
       content: "";
       width: 1px;
@@ -219,22 +230,35 @@ export default {
       height: 20px;
       top: -20px;
       left: -1px;
-      background-color: $mainColor;
+      background-color: $backgroundColorNav;
+      @include flexCent;
     }
+    &:last-child::after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      top: 33px;
+      bottom: 0;
+      left: -1px;
+      background-color: $colorWhite;
+    }
+  }
+  &__pseudo-element {
+    position: relative;
     &::after {
       content: "";
       width: 25px;
       position: absolute;
       height: 1px;
-      top: 32px;
-      left: -1px;
-      background-color: $mainColor;
+      top: 0;
+      left: -44px;
+      background-color: $backgroundColorNav;
     }
   }
 }
 
 .activList {
-  min-height: 100px;
+  min-height: 64px;
   height: 100%;
   opacity: 1;
   z-index: 100;

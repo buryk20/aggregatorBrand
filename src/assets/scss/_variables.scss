@@ -24,6 +24,12 @@ $colorBlack: #202020;
 @mixin blockShadow {
 }
 
+@mixin textUpper {
+  font-size: 17px;
+  text-transform: uppercase;
+  color: $colorBlack;
+}
+
 @mixin navBtn {
   height: 31px;
   padding: 0 8px;

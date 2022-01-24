@@ -1,20 +1,36 @@
 <template>
   <div>
-    <router-link :to="{ name: 'test2' }">
-      <div class="nav-brand-markup">
-        <div class="nav-brand-markup__wrp">
+    <div class="nav-brand-markup">
+      <div class="nav-brand-markup__wrp">
+        <router-link :to="{ name: 'exportMargin' }">
           <button
-            v-for="(navMargin, index) of navMargins"
-            :key="navMargin.id"
-            @click="click(index)"
-            :class="{ activNavBtn: index === currentId }"
+            @click="clickExport"
+            :class="{ activNavBtn: isActiveExport }"
             class="nav-brand-markup__btn"
           >
-            {{ navMargin.title }}
+            Наценка на экспорт
           </button>
-        </div>
+        </router-link>
+        <router-link :to="{ name: 'test2' }">
+          <button
+            @click="clickBrand"
+            :class="{ activNavBtn: isActiveBrand }"
+            class="nav-brand-markup__btn"
+          >
+            Наценка на бренд
+          </button>
+        </router-link>
+        <router-link :to="{ name: 'test2' }">
+          <button
+            @click="clickCategory"
+            :class="{ activNavBtn: isActivecategory }"
+            class="nav-brand-markup__btn"
+          >
+            Наценка на категорию
+          </button>
+        </router-link>
       </div>
-    </router-link>
+    </div>
     <router-view> </router-view>
   </div>
 </template>
@@ -24,26 +40,27 @@ export default {
   name: "myNavBrand",
   data(){
     return {
-      navMargins: [
-        {id:Math.round(Math.random() * (1 - 200) + 1), title: "Наценка на экспорт"},
-        {id:Math.round(Math.random() * (1 - 200) + 1), title: "Наценка на бренд"},
-        {id:Math.round(Math.random() * (1 - 200) + 1), title: "Наценка на категорию"}
-      ],
-      currentId: 0,
-      isActive: false,
+      isActiveExport: true,
+      isActiveBrand: false,
+      isActivecategory: false
     }
   },
   methods: {
-    click(btnId) {
-    
-      if (this.currentId === btnId) {
-        this.currentId = Number.NEGATIVE_INFINITY;
-        this.replayCheck = btnId;
-      } else {
-        this.currentId = btnId;
-        this.replayCheck = Number.NEGATIVE_INFINITY;
-      }
+    clickExport() {
+      this.isActiveExport = true
+      this.isActivecategory = false
+      this.isActiveBrand = false
     },
+    clickBrand() {
+      this.isActiveExport = false
+      this.isActivecategory = false
+      this.isActiveBrand = true
+    },
+    clickCategory() {
+      this.isActiveExport = false
+      this.isActiveBrand = false
+      this.isActivecategory = true
+    }
   }
 };
 </script>
