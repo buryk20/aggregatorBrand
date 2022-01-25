@@ -127,16 +127,18 @@ export default {
     max-width: 100%;
     position: relative;
     @include textUpper;
-    border: 1px solid $backgroundColorNav;
+    border: $borderBlock;
     border-top: 0;
     overflow: auto;
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
   }
   &__wrp-list-container {
     height: 387px;
     padding-left: 14px;
   }
   &__list {
-    border-left: 1px solid $backgroundColorNav;
+    border-left: $borderBlock;
   }
   &__list-btn {
     margin-right: 8px;

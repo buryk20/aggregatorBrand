@@ -4,6 +4,7 @@
       <h2 class="export-margin__title">Выгрузки</h2>
       <drop-down-list></drop-down-list>
       <all-exports-checkbox> </all-exports-checkbox>
+      <btn-plus></btn-plus>
     </div>
     <div class="export-margin__margin">
       <h2 class="export-margin__title">Наценка</h2>
@@ -15,12 +16,14 @@
 
 import dropDownList from './dropDownList.vue'
 import allExportsCheckbox from './UI/allExportsCheckbox.vue'
+import btnPlus from './UI/btnPlus.vue'
 
 export default {
     name: "exportMargin",
     components: {
       dropDownList,
-      allExportsCheckbox
+      allExportsCheckbox,
+      btnPlus
     }
 }
 </script>

@@ -75,7 +75,7 @@ export default {
   padding-left: 63px;
   @include marginCentre;
   &__wrp {
-    height: 35px;
+    height: 36px;
     padding-left: 2px;
     padding-right: 2px;
     background-color: $backgroundColorNav;

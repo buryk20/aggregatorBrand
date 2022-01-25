@@ -8,6 +8,7 @@ $backgroundColorNavBtnAct: #f7f9fa;
 $borderRadius: 8px;
 $magButt: 16px;
 $colorBlack: #202020;
+$borderBlock: 1px solid $backgroundColorNav;
 
 //mixin
 
@@ -68,6 +69,12 @@ $colorBlack: #202020;
 @mixin flexCent {
   display: flex;
   align-items: center;
+}
+
+@mixin flexCentrJust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @mixin dashHorizon {

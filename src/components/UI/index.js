@@ -1,5 +1,5 @@
-import BtnPlus from "@/components/UI/btnPlus";
+// import BtnPlus from "@/components/UI/btnPlus";
 
 export default [
-    BtnPlus
+    // BtnPlus
 ]
