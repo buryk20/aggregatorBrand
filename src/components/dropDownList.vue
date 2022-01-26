@@ -9,55 +9,6 @@
         <ul class="drop-dawn-list__list">
           <tree-item v-for="item of exportMargins" :key="item.id" :value="item">
           </tree-item>
-          <!-- <li
-            v-for="(exportMargin, index) of exportMargins"
-            :key="exportMargin.id"
-            class="drop-dawn-list__wrp-li"
-          >
-            <div class="drop-dawn-list__wrp-li-btn-wrp">
-              <button @click="click(index)" class="drop-dawn-list__list-btn">
-                <span
-                  :class="{ activBtn: index === currentId && examination }"
-                  class="drop-dawn-list__list-btn-line-virtical"
-                ></span>
-                <span class="drop-dawn-list__list-btn-line-horizon"></span>
-              </button>
-              <p>{{ exportMargin.title }}</p>
-            </div>
-            <ul
-              class="drop-dawn-list__none"
-              :class="{ activList: index === currentId }"
-            >
-              <li
-                v-if="exportMargin.export != undefined"
-                :class="{ activItem: index === currentId && examination }"
-                class="drop-dawn-list__nested-item"
-              >
-                {{ exportMargin.export }}
-              </li>
-              <li
-                v-if="exportMargin.export1 != undefined"
-                :class="{ activItem: index === currentId && examination }"
-                class="drop-dawn-list__nested-item"
-              >
-                {{ exportMargin.export1 }}
-              </li>
-              <li
-                v-if="exportMargin.export2 != undefined"
-                :class="{ activItem: index === currentId && examination }"
-                class="drop-dawn-list__nested-item"
-              >
-                {{ exportMargin.export2 }}
-              </li>
-              <li
-                v-else
-                :class="{ activItem: index === currentId && examination }"
-                class="drop-dawn-list__nested-item"
-              >
-                Нет экспортов
-              </li>
-            </ul>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -244,6 +195,23 @@ export default {
       left: -1px;
       background-color: $colorWhite;
     }
+    &:hover {
+      background-color: $backgroundColorHov;
+      transition: 0s;
+    }
+    &:hover .drop-dawn-list__nested-item-btn {
+      display: flex;
+    }
+  }
+  &__nested-item-btn {
+    padding: 11px;
+    position: absolute;
+    right: 21px;
+    color: $colorWhite;
+    display: none;
+    background-color: $colorBtn;
+    text-transform: uppercase;
+    border-radius: $borderRadius;
   }
   &__pseudo-element {
     position: relative;

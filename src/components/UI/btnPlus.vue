@@ -1,5 +1,5 @@
 <template>
-  <div class="markup-all-price">
+  <div v-for="btnPlus in btnsPlus" @submit.prevent class="markup-all-price">
     <div class="bnt-del">
       <span class="bnt-del__dash-left"></span>
       <span class="bnt-del__dash-right"></span>
@@ -24,7 +24,7 @@
         </select>
       </div>
     </div>
-    <div class="btn-plus">
+    <div @click="addField" class="btn-plus">
       <span class="btn-plus__dash-left"></span>
       <span class="btn-plus__dash-right"></span>
     </div>
@@ -54,6 +54,19 @@ export default {
         value: 4,
       }, ],
       selected: '2',
+      btnsPlus: [
+          {id: 1}
+        ]
+   }
+ },
+ methods: {
+   addField() {
+     const newFiled = {
+       id: Math.round(Math.random() * (1 - 200) + 1)
+       
+     }
+     this.btnsPlus.push(newFiled)
+     console.log(newFiled);
    }
  }
 }

@@ -22,6 +22,7 @@
       >
         <span class="drop-dawn-list__pseudo-element"></span>
         {{ item }}
+        <btn-add @click="addExport(value.children[index])">Добавить</btn-add>
       </li>
       <li
         v-else
@@ -68,6 +69,9 @@ export default {
     methods:{
         click() {
             this.active = !this.active;
+        },
+        addExport(item) {
+          console.log(item);
         }
     }
 }
