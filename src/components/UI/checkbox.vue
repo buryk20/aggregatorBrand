@@ -1,5 +1,5 @@
 <template>
-    <slot></slot>
+  <slot></slot>
 </template>
 
 <script>
@@ -24,6 +24,7 @@ export default {
 }
 
 .custom-checkbox + label {
+  margin-right: 5px;
   display: inline-flex;
   align-items: center;
   user-select: none;
@@ -36,7 +37,6 @@ export default {
   flex-shrink: 0;
   flex-grow: 0;
   border-radius: $borderRadius;
-  margin-right: 0.5em;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% 50%;

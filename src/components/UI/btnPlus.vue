@@ -1,7 +1,6 @@
 <template>
   <div :class="{isDisable: !checkboxExport}" v-for="btnPlus in btnsPlus" @submit.prevent class="markup-all-price">
     <btn-delete>
-
     </btn-delete>
     <div class="margin">
       <input

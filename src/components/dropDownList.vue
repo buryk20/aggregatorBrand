@@ -85,7 +85,7 @@ export default {
     border-bottom-right-radius: $borderRadius;
   }
   &__wrp-list-container {
-    height: 387px;
+    height: 620px;
     padding-left: 14px;
   }
   &__list {
