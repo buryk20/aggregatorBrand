@@ -1,6 +1,6 @@
 import exportMargin from "../components/exportMargin.vue";
-import test2 from "../components/test2.vue";
-import navBrand from "../components/navBrand.vue";
+import myBrand from "../components/myBrand.vue";
+// import navBrand from "../components/navBrand.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -20,14 +20,9 @@ const routes = [
     component: exportMargin,
   },
   {
-    path: "/test2",
-    name: "test2",
-    component: test2,
-  },
-  {
-    path: "/test/:id",
-    name: "navBrand",
-    component: navBrand,
+    path: "/myBrand",
+    name: "myBrand",
+    component: myBrand,
   },
   // {
   //   path: '/about',

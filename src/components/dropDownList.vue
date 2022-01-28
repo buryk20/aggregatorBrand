@@ -30,7 +30,7 @@ export default {
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
-            {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"}, 
+            {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "Обычный экспорт", children: ["li Обычный экспорт", "li1 Обычный экспорт"]},
         ],
         isActive: false,
@@ -43,7 +43,7 @@ export default {
             if (this.currentId === btnId) {
                 this.currentId = Number.NEGATIVE_INFINITY;
                 this.examination = this.btnId
-                
+
             } else {
                 this.currentId = btnId;
                 this.examination = Number.NEGATIVE_INFINITY;

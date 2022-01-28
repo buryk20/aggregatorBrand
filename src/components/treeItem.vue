@@ -22,7 +22,7 @@
       >
         <span class="drop-dawn-list__pseudo-element"></span>
         {{ item }}
-        <btn-add @click="addExport(value.children[index])">Добавить</btn-add>
+        <btn-add @click="addExport(item)">Добавить</btn-add>
       </li>
       <li
         v-else
@@ -36,46 +36,70 @@
       </tree-item> -->
     </ul>
   </li>
+  <div class="ubtn-plus">Тест дисейбла</div>
 </template>
 
 <script>
 class TreeItemData {
-    constructor(data) {
-        this.id = data.id;
-        this.title = data.title;
-        this.children = data.children;
-    }
+  constructor(data) {
+    this.id = data.id;
+    this.title = data.title;
+    this.children = data.children;
+  }
 }
 
 export default {
-    name: "treeItem",
-    props:{
-        value: {
-            required: true,
-            type: TreeItemData,
-            default: {}
-        }
+  name: "treeItem",
+  props: {
+    value: {
+      required: true,
+      type: TreeItemData,
+      default: {},
     },
-    data() {
-        return {
-            active: false
-        }
+  },
+  data() {
+    return {
+      active: false,
+      newExport: [],
+    };
+  },
+  computed: {
+    isHasChildren() {
+      return this.value?.children?.length;
     },
-    computed:{
-        isHasChildren() {
-            return this.value?.children?.length
-        }
+  },
+  methods: {
+    click() {
+      this.active = !this.active;
     },
-    methods:{
-        click() {
-            this.active = !this.active;
-        },
-        addExport(item) {
-          console.log(item);
-        }
-    }
-}
+    addExport(item) {
+      console.log(item);
+
+      this.newExport.push({
+        parent: this.title,
+        child: item,
+      });
+    },
+  },
+};
 </script>
 
-<style>
+<style lang="scss">
+@mixin hasParent($selector) {
+  $that: &;
+
+  @at-root {
+    #{$selector}>#{$that} {
+      @content;
+    }
+  }
+}
+.ubtn-plus {
+  padding: 16px;
+  background-color: aqua;
+
+  @include hasParent(".dis") {
+    background-color: gray;
+  }
+}
 </style>

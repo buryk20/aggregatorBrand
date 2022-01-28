@@ -1,9 +1,8 @@
 <template>
-  <div v-for="btnPlus in btnsPlus" @submit.prevent class="markup-all-price">
-    <div class="bnt-del">
-      <span class="bnt-del__dash-left"></span>
-      <span class="bnt-del__dash-right"></span>
-    </div>
+  <div :class="{isDisable: !checkboxExport}" v-for="btnPlus in btnsPlus" @submit.prevent class="markup-all-price">
+    <btn-delete>
+
+    </btn-delete>
     <div class="margin">
       <input
         class="margin__price"
@@ -29,81 +28,80 @@
       <span class="btn-plus__dash-right"></span>
     </div>
   </div>
+  <div></div>
 </template>
 
 <script>
 export default {
- name: 'my-btn-plus',
- data() {
-   return {
-     items: [{
-        id: 1,
-        title: '%',
-        value: 1,
-      }, {
-        id: 2,
-        title: 'Грн',
-        value: 2,
-      },
-      {id: 3,
-        title: '%',
-        value: 3,
-      },
-      {id: 4,
-        title: '-Грн',
-        value: 4,
-      }, ],
-      selected: '2',
-      btnsPlus: [
-          {id: 1}
-        ]
-   }
- },
- methods: {
-   addField() {
-     const newFiled = {
-       id: Math.round(Math.random() * (1 - 200) + 1)
-       
-     }
-     this.btnsPlus.push(newFiled)
-     console.log(newFiled);
-   }
- }
-}
+  name: "my-btn-plus",
+  data() {
+    return {
+      items: [
+        {
+          id: 1,
+          title: "%",
+          value: 1,
+        },
+        {
+          id: 2,
+          title: "Грн",
+          value: 2,
+        },
+        { id: 3, title: "%", value: 3 },
+        { id: 4, title: "-Грн", value: 4 },
+      ],
+      selected: "2",
+      btnsPlus: [{ id: 1 }],
+    };
+  },
+  props: {
+    checkboxExport: Boolean
+  },
+  methods: {
+    addField() {
+      const newFiled = {
+        id: Math.round(Math.random() * (1 - 200) + 1),
+      };
+      if (this.btnsPlus.length <= 2) {
+        this.btnsPlus.push(newFiled);
+      }
+
+      console.log(this.items.length);
+      console.log(this.items.length - 1);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-.markup-all-price {
-  @include flexCent;
+@mixin hasParent($selector) {
+  $that: &;
+
+  @at-root {
+    #{$selector}>#{$that} {
+      @content;
+    }
+  }
 }
-.bnt-del {
-  width: 24px;
-  height: 24px;
-  margin-right: 5px;
+.ubtn-plus {
+  padding: 16px;
+  background-color: aqua;
+
+  // @include hasParent(".dis") {
+  //   background-color: gray;
+  // }
+}
+
+.markup-all-price {
+  margin-bottom: 5px;
+  @include flexCent;
   position: relative;
-  border: $borderBlock;
-  border-radius: $borderRadius;
-  cursor: pointer;
-  &__dash-left {
-    @include dashVertical;
-    width: 15px;
-    left: 4px;
-    top: 10px;
-    background-color: $mainColor;
-    transform: rotate(45deg);
-  }
-  &__dash-right {
-    @include dashVertical;
-    width: 15px;
-    left: 4px;
-    top: 10px;
-    background-color: $mainColor;
-    transform: rotate(-45deg);
-  }
+  opacity: 1;
 }
 .btn-plus {
   @include btnPlus;
-  position: relative;
+  position: absolute;
+  right: -24px;
   &__dash-left {
     @include dashHorizon;
     background-color: $colorWhite;
@@ -148,5 +146,9 @@ export default {
 }
 option {
   border-radius: 8px;
+}
+
+.isDisable {
+  opacity: 0.5;
 }
 </style>

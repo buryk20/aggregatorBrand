@@ -4,13 +4,14 @@
       <h2 class="export-margin__title">Выгрузки</h2>
       <drop-down-list></drop-down-list>
       <div class="checkbox-wrp">
-        <input
+        <my-checkbox>
+          <input
           type="checkbox"
           class="custom-checkbox"
           id="checkbox"
           v-model="checkbox"
         />
-
+        </my-checkbox>
         <label class="custom-checkbox__text" for="checkbox"
           >Выбрать все экспорты</label
         >
@@ -22,6 +23,9 @@
     </div>
     <div class="export-margin__margin">
       <h2 class="export-margin__title">Наценка</h2>
+      <div class="export-margin__container">
+        <export-margin-item></export-margin-item>
+      </div>
     </div>
   </div>
 </template>
@@ -31,18 +35,20 @@
 import dropDownList from './dropDownList.vue'
 import allExportsCheckbox from './UI/allExportsCheckbox.vue'
 import btnPlus from './UI/btnPlus.vue'
+import exportMarginItem from './exportMarginItem.vue'
 
 export default {
     name: "exportMargin",
     components: {
       dropDownList,
       allExportsCheckbox,
-      btnPlus
+      btnPlus,
+      exportMarginItem
     },
     data() {
       return {
         checkbox: false
-        
+
       }
     }
 }
@@ -50,6 +56,7 @@ export default {
 
 <style lang="scss" scoped>
 .export-margin {
+  min-height: 660px;
   color: $mainColor;
   @include flexSpasBit;
   @include contentGrid;
@@ -57,6 +64,7 @@ export default {
   &__unloading {
     max-width: 450px;
     width: 100%;
+    margin-right: 10px;
   }
   &__title {
     margin-bottom: $magButt;
@@ -65,45 +73,17 @@ export default {
     text-align: left;
   }
   &__btn-pus-wrp {
-    // display: none;
+    display: flex;
+    flex-wrap: wrap;
   }
-}
-
-.custom-checkbox {
-  position: absolute;
-  z-index: -1;
-  opacity: 0;
-  &__text {
-    @include textUpper;
+  &__container {
+    max-width: 857px;
+    width: 100%;
+    border: $borderBlock;
+    border-radius: $borderRadius;
   }
-}
-.checkbox-wrp {
-  padding-top: 24px;
-  margin-bottom: 24px;
-  position: relative;
-}
-
-.custom-checkbox + label {
-  display: inline-flex;
-  align-items: center;
-  user-select: none;
-}
-.custom-checkbox + label::before {
-  content: "";
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  flex-grow: 0;
-  border-radius: $borderRadius;
-  margin-right: 0.5em;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: 50% 50%;
-  border: 1px solid $mainColor;
-}
-.custom-checkbox:checked + label::before {
-  background-color: $mainColor;
-  background-image: url("/icon/check-mark-all-brand-icon.svg");
+  &__margin {
+    width: 100%;
+  }
 }
 </style>

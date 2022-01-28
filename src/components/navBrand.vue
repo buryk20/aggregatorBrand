@@ -11,7 +11,7 @@
             Наценка на экспорт
           </button>
         </router-link>
-        <router-link :to="{ name: 'test2' }">
+        <router-link :to="{ name: 'myBrand' }">
           <button
             @click="clickBrand"
             :class="{ activNavBtn: isActiveBrand }"
@@ -20,7 +20,7 @@
             Наценка на бренд
           </button>
         </router-link>
-        <router-link :to="{ name: 'test2' }">
+        <router-link :to="{ name: 'myBrand' }">
           <button
             @click="clickCategory"
             :class="{ activNavBtn: isActivecategory }"
@@ -32,12 +32,17 @@
       </div>
     </div>
     <router-view> </router-view>
+    <btn-save></btn-save>
   </div>
 </template>
 
 <script>
+import btnSave from './UI/btnSave.vue'
 export default {
   name: "myNavBrand",
+  components: {
+    btnSave
+  },
   data(){
     return {
       isActiveExport: true,
