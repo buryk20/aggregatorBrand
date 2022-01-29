@@ -35,6 +35,7 @@ export default {
   &__content {
     margin: auto;
     background-color: $colorWhite;
+    border-radius: $borderRadius;
   }
 }
 </style>

@@ -6,11 +6,11 @@
       <div class="checkbox-wrp">
         <my-checkbox>
           <input
-          type="checkbox"
-          class="custom-checkbox"
-          id="checkbox"
-          v-model="checkbox"
-        />
+            type="checkbox"
+            class="custom-checkbox"
+            id="checkbox"
+            v-model="checkbox"
+          />
         </my-checkbox>
         <label class="custom-checkbox__text" for="checkbox"
           >Выбрать все экспорты</label
@@ -24,7 +24,10 @@
     <div class="export-margin__margin">
       <h2 class="export-margin__title">Наценка</h2>
       <div class="export-margin__container">
-        <export-margin-item></export-margin-item>
+        <export-margin-item
+          v-for="exportBr of exportBrs"
+          :key="exportBr.id"
+        ></export-margin-item>
       </div>
     </div>
   </div>
@@ -47,7 +50,12 @@ export default {
     },
     data() {
       return {
-        checkbox: false
+        checkbox: false,
+        exportBrs: [
+          {id:3, title: 'test'},
+          {id:4, title: 'test'},
+          {id:6, title: 'test'}
+        ]
 
       }
     }

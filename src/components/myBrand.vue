@@ -36,27 +36,93 @@
               </p>
             </div>
           </div>
-          <!-- <option disabled value=""></option>
-          <option v-for="brend in brends" :key="brend.id" value="">
-            {{ brend.title }}
-          </option> -->
         </div>
       </div>
     </div>
     <div class="brand-margin__cont-wrp">
       <div class="brand-margin__cont">
-        <div class="brand-margin__total-export">
-          <btn-delete class="brand-margin__cont-btn-del"></btn-delete>
-          <p class="brand-margin__total-brend-text">Бренд</p>
-          <button @click="showDial" class="brand-margin__total-brend-btn">
-            Выбор экспорта
-          </button>
+        <div class="brand-margin__all-export-wrp">
+          <div class="brand-margin__total-export">
+            <btn-delete class="brand-margin__cont-btn-del"></btn-delete>
+            <p class="brand-margin__total-brend-text">Бренд</p>
+            <button @click="showDial" class="brand-margin__total-brend-btn">
+              Выбор экспорта
+            </button>
+          </div>
+          <div class="brand-margin__list-marim">
+            <btn-plus></btn-plus>
+          </div>
         </div>
-        <div class="brand-margin__list-marim">
-          <btn-plus></btn-plus>
+        <div class="brand-margin__item-export-breng">
+          <div class="margim-item">
+            <div class="margim-item__list">
+              <div class="margim-item__list-source-wrp">
+                <btn-delete> </btn-delete>
+                <div class="margim-item__list-source">
+                  <p class="margim-item__list-source-text">dfscvdfv</p>
+                </div>
+              </div>
+              <btn-plus v-bind:checkboxExport="checkboxExport"> </btn-plus>
+            </div>
+          </div>
+        </div>
+        <div class="brand-margin__item-export-breng">
+          <div class="margim-item">
+            <div class="margim-item__list">
+              <div class="margim-item__list-source-wrp">
+                <btn-delete> </btn-delete>
+                <div class="margim-item__list-source">
+                  <p class="margim-item__list-source-text">dfscvdfv</p>
+                </div>
+              </div>
+              <btn-plus v-bind:checkboxExport="checkboxExport"> </btn-plus>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="brand-margin__line-block"></div>
+      <div class="brand-margin__cont">
+        <div class="brand-margin__all-export-wrp">
+          <div class="brand-margin__total-export">
+            <btn-delete class="brand-margin__cont-btn-del"></btn-delete>
+            <p class="brand-margin__total-brend-text">Бренд</p>
+            <button @click="showDial" class="brand-margin__total-brend-btn">
+              Выбор экспорта
+            </button>
+          </div>
+          <div class="brand-margin__list-marim">
+            <btn-plus></btn-plus>
+          </div>
+        </div>
+        <div class="brand-margin__item-export-breng">
+          <div class="margim-item">
+            <div class="margim-item__list">
+              <div class="margim-item__list-source-wrp">
+                <btn-delete> </btn-delete>
+                <div class="margim-item__list-source">
+                  <p class="margim-item__list-source-text">dfscvdfv</p>
+                </div>
+              </div>
+              <btn-plus v-bind:checkboxExport="checkboxExport"> </btn-plus>
+            </div>
+          </div>
+        </div>
+        <div class="brand-margin__item-export-breng">
+          <div class="margim-item">
+            <div class="margim-item__list">
+              <div class="margim-item__list-source-wrp">
+                <btn-delete> </btn-delete>
+                <div class="margim-item__list-source">
+                  <p class="margim-item__list-source-text">dfscvdfv</p>
+                </div>
+              </div>
+              <btn-plus v-bind:checkboxExport="checkboxExport"> </btn-plus>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
     <dialog-export v-model:showDialog="dialogVisible">
       <drop-down-list></drop-down-list>
     </dialog-export>
@@ -109,13 +175,14 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .brand-margin {
   min-height: 660px;
   &__tag {
     max-width: 1316px;
     width: 100%;
     height: 61px;
+    margin-bottom: 10px;
     padding-left: 16px;
     border: 1px solid $mainColor;
     border-radius: $borderRadius;
@@ -198,10 +265,12 @@ export default {
     border: 1px solid $backgroundColorNav;
     border-top: 0;
     max-height: 347px;
+    position: relative;
     overflow: auto;
     border-bottom-left-radius: $borderRadius;
     border-bottom-right-radius: $borderRadius;
     background-color: $colorWhite;
+    z-index: 100;
   }
   &__tag-btn-brand-icon {
     padding-left: 10px;
@@ -223,14 +292,12 @@ export default {
     border-radius: $borderRadius;
   }
   &__cont {
-    border-bottom: 1px solid $backgroundColorNav;
-    @include flexCent;
-    align-items: baseline;
+    // border-bottom: 1px solid $backgroundColorNav;
   }
   &__cont-btn-del {
   }
   &__total-export {
-    width: 48%;
+    width: 41.7%;
     padding-top: 10px;
     padding-left: 10px;
     @include flexCent;
@@ -244,6 +311,18 @@ export default {
   }
   &__list-marim {
     display: flex;
+  }
+  &__all-export-wrp {
+    @include flexCent;
+    align-items: baseline;
+  }
+  &__item-export-breng {
+    padding-left: 34px;
+  }
+  &__line-block {
+    width: 100%;
+    height: 1px;
+    background-color: $mainColor;
   }
 }
 .isActivDropdown {

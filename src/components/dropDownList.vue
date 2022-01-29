@@ -203,6 +203,7 @@ export default {
       display: flex;
     }
   }
+
   &__nested-item-btn {
     padding: 11px;
     position: absolute;
@@ -212,6 +213,9 @@ export default {
     background-color: $colorBtn;
     text-transform: uppercase;
     border-radius: $borderRadius;
+    @include btnDelete(".btnDelete") {
+      background-color: #aa3c3c;
+    }
   }
   &__pseudo-element {
     position: relative;
@@ -243,5 +247,9 @@ export default {
 .activItem {
   height: 64px;
   transition: 0.3s ease-in;
+}
+
+.btnDelete {
+  background-color: #aa3c3c;
 }
 </style>

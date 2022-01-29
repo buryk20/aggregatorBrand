@@ -14,6 +14,15 @@ $borderBlock: 1px solid $backgroundColorNav;
 
 //mixin
 
+@mixin btnDelete($selector) {
+  $that: &;
+  @at-root {
+    #{$selector} > #{$that} {
+      @content;
+    }
+  }
+}
+
 @mixin btnPlus {
   width: 24px;
   height: 24px;
@@ -47,7 +56,7 @@ $borderBlock: 1px solid $backgroundColorNav;
 @mixin navBtn {
   height: 31px;
   padding: 0 8px;
-  background-color: $backgroundColorNav;
+  @include flexCentrJust;
   border-radius: $borderRadius;
   border-color: $backgroundColorNav;
   font-size: 16px;

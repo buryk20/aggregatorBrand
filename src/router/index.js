@@ -1,5 +1,6 @@
 import exportMargin from "../components/exportMargin.vue";
 import myBrand from "../components/myBrand.vue";
+import markupPerCategory from "../components/markupPerCategory.vue"
 // import navBrand from "../components/navBrand.vue";
 
 import { createRouter, createWebHistory } from "vue-router";
@@ -23,6 +24,11 @@ const routes = [
     path: "/myBrand",
     name: "myBrand",
     component: myBrand,
+  },
+  {
+    path: "/markupPerCategory",
+    name: "markupPerCategory",
+    component: markupPerCategory,
   },
   // {
   //   path: '/about',

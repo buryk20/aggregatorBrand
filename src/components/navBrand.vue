@@ -2,32 +2,20 @@
   <div>
     <div class="nav-brand-markup">
       <div class="nav-brand-markup__wrp">
-        <router-link :to="{ name: 'exportMargin' }">
-          <button
-            @click="clickExport"
-            :class="{ activNavBtn: isActiveExport }"
-            class="nav-brand-markup__btn"
-          >
-            Наценка на экспорт
-          </button>
+        <router-link
+          :to="{ name: 'exportMargin' }"
+          class="nav-brand-markup__btn"
+        >
+          <p>Наценка на экспорт</p>
         </router-link>
-        <router-link :to="{ name: 'myBrand' }">
-          <button
-            @click="clickBrand"
-            :class="{ activNavBtn: isActiveBrand }"
-            class="nav-brand-markup__btn"
-          >
-            Наценка на бренд
-          </button>
+        <router-link :to="{ name: 'myBrand' }" class="nav-brand-markup__btn">
+          <p>Наценка на бренд</p>
         </router-link>
-        <router-link :to="{ name: 'myBrand' }">
-          <button
-            @click="clickCategory"
-            :class="{ activNavBtn: isActivecategory }"
-            class="nav-brand-markup__btn"
-          >
-            Наценка на категорию
-          </button>
+        <router-link
+          :to="{ name: 'markupPerCategory' }"
+          class="nav-brand-markup__btn"
+        >
+          <p>Наценка на категорию</p>
         </router-link>
       </div>
     </div>
@@ -51,22 +39,6 @@ export default {
     }
   },
   methods: {
-    clickExport() {
-      this.isActiveExport = true
-      this.isActivecategory = false
-      this.isActiveBrand = false
-
-    },
-    clickBrand() {
-      this.isActiveExport = false
-      this.isActivecategory = false
-      this.isActiveBrand = true
-    },
-    clickCategory() {
-      this.isActiveExport = false
-      this.isActiveBrand = false
-      this.isActivecategory = true
-    }
   }
 };
 </script>
@@ -97,7 +69,7 @@ export default {
   }
 }
 
-.activNavBtn {
+.router-link-active {
   @include navBtnAct;
   transition: 0.3s ease-in;
 }

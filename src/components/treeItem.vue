@@ -22,7 +22,9 @@
       >
         <span class="drop-dawn-list__pseudo-element"></span>
         {{ item }}
-        <btn-add @click="addExport(item)">Добавить</btn-add>
+        <btn-add @textBtn="newText" @click="addExport(item)">{{
+          textBntDelete
+        }}</btn-add>
       </li>
       <li
         v-else
@@ -36,7 +38,6 @@
       </tree-item> -->
     </ul>
   </li>
-  <div class="ubtn-plus">Тест дисейбла</div>
 </template>
 
 <script>
@@ -61,6 +62,7 @@ export default {
     return {
       active: false,
       newExport: [],
+      textBntDelete: 'Добавить'
     };
   },
   computed: {
@@ -74,32 +76,21 @@ export default {
     },
     addExport(item) {
       console.log(item);
-
       this.newExport.push({
         parent: this.title,
         child: item,
       });
     },
+    newText(textBtnDel) {
+      console.log(this.textBtnDel);
+      console.log(this.textBntDelete);
+        this.textBntDelete = textBtnDel
+        console.log(this.textBntDelete);
+    }
   },
+  
 };
 </script>
 
 <style lang="scss">
-@mixin hasParent($selector) {
-  $that: &;
-
-  @at-root {
-    #{$selector}>#{$that} {
-      @content;
-    }
-  }
-}
-.ubtn-plus {
-  padding: 16px;
-  background-color: aqua;
-
-  @include hasParent(".dis") {
-    background-color: gray;
-  }
-}
 </style>

@@ -1,26 +1,24 @@
 <template>
-    <div class="margim-item">
-        <div class="margim-item__list">
-            <div class="margim-item__list-source-wrp">
-                <my-checkbox>
-                <input
-                    type="checkbox"
-                    class="custom-checkbox"
-                    id="checkboxExport"
-                    v-model="checkboxExport"
-                    @click="a"
-                />
-                <label for="checkboxExport"></label>
-                </my-checkbox>
-                <btn-delete> </btn-delete>
-                <div class="margim-item__list-source">
-                <p class="margim-item__list-source-text">dfscvdfv</p>
-                </div>
-            </div>
-            <btn-plus v-bind:checkboxExport="checkboxExport">
-            </btn-plus>
+  <div class="margim-item">
+    <div class="margim-item__list">
+      <div class="margim-item__list-source-wrp">
+        <my-checkbox>
+          <input
+            type="checkbox"
+            class="custom-checkbox"
+            id="checkboxExport"
+            v-model="checkboxExport"
+          />
+          <label for="checkboxExport"></label>
+        </my-checkbox>
+        <btn-delete> </btn-delete>
+        <div class="margim-item__list-source">
+          <p class="margim-item__list-source-text">dfscvdfv</p>
         </div>
+      </div>
+      <btn-plus v-bind:checkboxExport="checkboxExport"> </btn-plus>
     </div>
+  </div>
 </template>
 
 <script>
@@ -43,7 +41,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .margim-item {
   padding-top: 5px;
   &__list {
@@ -71,6 +69,6 @@ export default {
   }
 }
 .a {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 </style>
