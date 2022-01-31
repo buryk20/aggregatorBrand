@@ -1,9 +1,9 @@
 <template>
   <div class="bnt-del">
-      <span class="bnt-del__dash-left"></span>
-      <span class="bnt-del__dash-right"></span>
+    <span class="bnt-del__dash-left"></span>
+    <span class="bnt-del__dash-right"></span>
   </div>
-<slot></slot>
+  <slot></slot>
 </template>
 
 <script>

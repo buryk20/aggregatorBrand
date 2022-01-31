@@ -2,21 +2,20 @@
   <div class="margim-item">
     <div class="margim-item__list">
       <div class="margim-item__list-source-wrp">
-        <my-checkbox>
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            id="checkboxExport"
-            v-model="checkboxExport"
-          />
-          <label for="checkboxExport"></label>
-        </my-checkbox>
-        <btn-delete> </btn-delete>
+        <input
+          type="checkbox"
+          class="custom-checkbox"
+          id="checkboxExport"
+          v-model="checkboxExport"
+          @click="isActivCheckBox"
+        />
+        <label for="checkboxExport"></label>
+        <div><btn-delete> </btn-delete></div>
         <div class="margim-item__list-source">
           <p class="margim-item__list-source-text">dfscvdfv</p>
         </div>
       </div>
-      <btn-plus v-bind:checkboxExport="checkboxExport"> </btn-plus>
+      <btn-plus v-bind:checkbox="checkbox"> </btn-plus>
     </div>
   </div>
 </template>
@@ -29,14 +28,18 @@ export default {
   },
   data() {
       return {
-          checkboxExport: true
+          checkboxExport: true,
+          checkbox: false
       }
   },
   methods: {
       isActivCheckBox(){
-        //   checkboxExport = false
-          console.log(checkboxExport);
-      }
+        if(this.checkboxExport) {
+          this.checkbox = true
+        } else {
+          this.checkbox = false
+        }
+      }  
   }
 };
 </script>
@@ -68,6 +71,45 @@ export default {
     padding: 0 5px;
   }
 }
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  &__text {
+    @include textUpper;
+  }
+}
+.checkbox-wrp {
+  padding-top: 24px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.custom-checkbox + label {
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.custom-checkbox + label::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border-radius: $borderRadius;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+  border: 1px solid $mainColor;
+}
+.custom-checkbox:checked + label::before {
+  background-color: $mainColor;
+  background-image: url("/icon/check-mark-all-brand-icon.svg");
+}
+
 .a {
   opacity: 0.5;
 }

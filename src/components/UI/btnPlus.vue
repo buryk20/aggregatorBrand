@@ -1,7 +1,12 @@
 <template>
-  <div :class="{isDisable: !checkboxExport}" v-for="btnPlus in btnsPlus" @submit.prevent class="markup-all-price">
-    <btn-delete>
-    </btn-delete>
+  <div
+    :class="{ isDisable: checkbox }"
+    v-for="btnPlus in btnsPlus"
+    @submit.prevent
+    class="markup-all-price"
+    :key="btnPlus.id"
+  >
+    <div @click="del(btnPlus)"><btn-delete> </btn-delete></div>
     <div class="margin">
       <input
         class="margin__price"
@@ -54,7 +59,9 @@ export default {
     };
   },
   props: {
-    checkboxExport: Boolean
+    checkbox: {
+      type: Boolean
+    } 
   },
   methods: {
     addField() {
@@ -64,11 +71,16 @@ export default {
       if (this.btnsPlus.length <= 2) {
         this.btnsPlus.push(newFiled);
       }
-
-      console.log(this.items.length);
-      console.log(this.items.length - 1);
     },
-  },
+    del(btnPlus){
+      console.log(this.btnsPlus.length);
+      if(this.btnsPlus.length > 1) {
+        this.btnsPlus = this.btnsPlus.filter(p => p.id !== btnPlus.id)
+      }
+      
+      
+    }
+  }
 };
 </script>
 
@@ -77,7 +89,7 @@ export default {
   $that: &;
 
   @at-root {
-    #{$selector}>#{$that} {
+    #{$selector} > #{$that} {
       @content;
     }
   }
@@ -111,11 +123,11 @@ export default {
   }
   &:hover &__dash-left {
     transform: rotate(90deg);
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
   }
   &:hover &__dash-right {
     transform: rotate(180deg);
-    transition: 0.3s ease-in;
+    transition: 0.2s ease-in;
   }
 }
 
