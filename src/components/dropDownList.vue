@@ -251,5 +251,10 @@ export default {
 
 .btnDelete {
   background-color: #aa3c3c;
+  display: flex;
+}
+
+.activeBackColor {
+  background-color: $backgroundColorHov;
 }
 </style>

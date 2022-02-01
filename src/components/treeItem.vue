@@ -15,14 +15,14 @@
     <ul class="drop-dawn-list__none" :class="{ activList: active }">
       <li
         class="drop-dawn-list__nested-item"
-        :class="{ activItem: active }"
+        :class="{ activItem: active, activeBackColor: index === currentId }"
         v-for="(item, index) of value.children"
         v-if="isHasChildren"
         :key="index"
       >
         <span class="drop-dawn-list__pseudo-element"></span>
         {{ item }}
-        <btn-add @textBtn="newText" @click="addExport(item)">{{
+        <btn-add @textBtn="newText" @click="addExport(item, index)">{{
           textBntDelete
         }}</btn-add>
       </li>
@@ -61,8 +61,10 @@ export default {
   data() {
     return {
       active: false,
+      isActiveHov: false,
       newExport: [],
-      textBntDelete: 'Добавить'
+      textBntDelete: 'Добавить',
+      currentId: Number.NEGATIVE_INFINITY
     };
   },
   computed: {
@@ -74,18 +76,15 @@ export default {
     click() {
       this.active = !this.active;
     },
-    addExport(item) {
+    addExport(item, index) {
       console.log(item);
       this.newExport.push({
         parent: this.title,
         child: item,
       });
     },
-    newText(textBtnDel) {
-      console.log(this.textBtnDel);
-      console.log(this.textBntDelete);
+    newText(textBtnDel, isActiveHover) {
         this.textBntDelete = textBtnDel
-        console.log(this.textBntDelete);
     }
   },
   

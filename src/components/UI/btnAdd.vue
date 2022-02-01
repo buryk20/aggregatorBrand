@@ -14,6 +14,7 @@ export default {
  data(){
    return {
      isActive: false,
+     isActiveHover: false,
      textBtnDel: 'Добавить'
    }
  },
@@ -25,8 +26,9 @@ export default {
           this.$emit('textBtn', this.textBtnDel)
         } else {
           this.isActive = true;
+          this.isActiveHover = true;
           this.textBtnDel = 'Убрать'
-          this.$emit('textBtn', this.textBtnDel)
+          this.$emit('textBtn', this.textBtnDel, this.isActiveHover)
         }
         
         

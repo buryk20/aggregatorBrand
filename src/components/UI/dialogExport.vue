@@ -1,5 +1,5 @@
 <template>
-  <div class="dialog" v-if="showDialog" @click.="hideDialog">
+  <div class="dialog" v-if="showDialog || showDialogCat" @click.="hideDialog">
     <div @click.stop class="dialog__content">
       <slot></slot>
     </div>
