@@ -24,9 +24,8 @@
     <div class="export-margin__margin">
       <h2 class="export-margin__title">Наценка</h2>
       <div class="export-margin__container">
-        <export-margin-item
-          v-for="exportBr of exportBrs"
-          :key="exportBr.id"
+        <export-margin-item v-bind:exportBrs="exportBrs"
+
         ></export-margin-item>
       </div>
     </div>

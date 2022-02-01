@@ -32,6 +32,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: flex;
+  z-index: 101;
   &__content {
     margin: auto;
     background-color: $colorWhite;
