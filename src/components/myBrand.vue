@@ -21,10 +21,11 @@
             <div class="brand-margin__tag-dropdown">
               <img src="/icon/search_icon_brend.svg" alt="" />
               <input class="brand-margin__tag-dropdown-input" type="text" />
-              <button @click="show" class="brand-margin__tag-dropdown-btn">
+              <!-- <button @click="show" class="brand-margin__tag-dropdown-btn">
                 <span class="brand-margin__tag-dropdown-btn-line-r"></span>
                 <span class="brand-margin__tag-dropdown-btn-line-l"></span>
-              </button>
+              </button> -->
+              <btn-close-dialog @click="show"></btn-close-dialog>
             </div>
             <div class="brand-margin__tag-dropdown-item-wrp">
               <p
