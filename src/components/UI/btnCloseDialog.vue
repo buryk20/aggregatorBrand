@@ -1,5 +1,5 @@
 <template>
-  <button class="brand-margin__tag-dropdown-btn">
+  <button @click="showDial" class="brand-margin__tag-dropdown-btn">
     <span class="brand-margin__tag-dropdown-btn-line-r"></span>
     <span class="brand-margin__tag-dropdown-btn-line-l"></span>
   </button>
@@ -7,7 +7,19 @@
 
 <script>
 export default {
-    name: 'btnCloseDialog'
+    name: 'btnCloseDialog',
+    props: {
+      showDialog: {
+            type: Boolean,
+            default: false
+        }
+    },
+    methods: {
+      
+      showDial() {
+         this.$emit('update:showDialog', false)
+      }
+    }
 };
 </script>
 

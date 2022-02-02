@@ -1,22 +1,114 @@
 <template>
   <div class="markup-category">
-    <button @click="showDial" class="markup-category__btn">Выбор категории</button>
+    <button @click="showDial" class="markup-category__btn">
+      Выбор категории
+    </button>
     <dialog-export v-model:showDialog="dialogVisible">
       <div class="markup-category__dialog-categories-wrp">
         <div class="markup-category__dialog-categories-head">
-          <h2 class="markup-category__dialog-categories-head-text">Выбор категории</h2>
+          <h2 class="markup-category__dialog-categories-head-text">
+            Выбор категории
+          </h2>
           <div class="markup-category__dialog-categories-btn-subcate">
-            <p>
-              Отобразить вложенность
-            </p>
+            <p>Отобразить вложенность</p>
             <button class="markup-category__dialog-categories-btn-wrp">
               <div class="markup-category__dialog-categories-btn">
-                <span class="markup-category__dialog-categories-btn-line-r"></span>
-                <span class="markup-category__dialog-categories-btn-line-l"></span>
+                <span
+                  class="markup-category__dialog-categories-btn-line-r"
+                ></span>
+                <span
+                  class="markup-category__dialog-categories-btn-line-l"
+                ></span>
               </div>
             </button>
           </div>
-          <btn-close-dialog></btn-close-dialog>
+          <btn-close-dialog
+            v-model:showDialog="dialogVisible"
+          ></btn-close-dialog>
+        </div>
+        <div class="markup-category__list-wrp">
+          <ul class="markup-category__list-parent">
+            <li class="markup-category__list-children">
+              <div class="markup-category__wrp-li-btn">
+                <button class="markup-category__list-btn" @click="click">
+                  <span
+                    :class="{ activBtn: active }"
+                    class="drop-dawn-list__list-btn-line-virtical"
+                  ></span>
+                  <span class="drop-dawn-list__list-btn-line-horizon"></span>
+                </button>
+                <p class="markup-category__list-btn-text">
+                  Литиевые аккумуляторы
+                </p>
+              </div>
+              <ul class="markup-category__list-parent">
+                <li class="markup-category__list-children">
+                  <div class="markup-category__wrp-li-btn">
+                    <button class="markup-category__list-btn" @click="click">
+                      <span
+                        :class="{ activBtn: active }"
+                        class="drop-dawn-list__list-btn-line-virtical"
+                      ></span>
+                      <span
+                        class="drop-dawn-list__list-btn-line-horizon"
+                      ></span>
+                    </button>
+                    <p class="markup-category__list-btn-text">BMS платы</p>
+                  </div>
+
+                  <ul class="markup-category__list-parent">
+                    <li class="markup-category__list-children">
+                      <div class="markup-category__wrp-li-btn">
+                        <button
+                          class="markup-category__list-btn"
+                          @click="click"
+                        >
+                          <span
+                            :class="{ activBtn: active }"
+                            class="drop-dawn-list__list-btn-line-virtical"
+                          ></span>
+                          <span
+                            class="drop-dawn-list__list-btn-line-horizon"
+                          ></span>
+                        </button>
+                        <p class="markup-category__list-btn-text">
+                          BMS платы Lifepo4
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="markup-category__list-children">
+                  <div class="markup-category__wrp-li-btn">
+                    <button class="markup-category__list-btn" @click="click">
+                      <span
+                        :class="{ activBtn: active }"
+                        class="drop-dawn-list__list-btn-line-virtical"
+                      ></span>
+                      <span
+                        class="drop-dawn-list__list-btn-line-horizon"
+                      ></span>
+                    </button>
+                    <p class="markup-category__list-btn-text">BMS платы LTO</p>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li class="markup-category__list-children">
+              <div class="markup-category__wrp-li-btn">
+                <button class="markup-category__list-btn" @click="click">
+                  <span
+                    :class="{ activBtn: active }"
+                    class="drop-dawn-list__list-btn-line-virtical"
+                  ></span>
+                  <span class="drop-dawn-list__list-btn-line-horizon"></span>
+                </button>
+                <p class="markup-category__list-btn-text">
+                  Литиевые аккумуляторы
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </div>
     </dialog-export>
@@ -43,8 +135,7 @@ export default {
       showDial() {
         this.dialogVisible = true
         }
-
-    }
+      }
 }
 </script>
 
@@ -63,18 +154,15 @@ export default {
     border-radius: $borderRadius;
   }
   &__dialog-categories-wrp {
-    width: 679px;
+    width: 1312px;
     font-size: 17px;
     text-transform: uppercase;
-    border: 1px solid $mainColor;
-    border-top-left-radius: $borderRadius;
-    border-top-right-radius: $borderRadius;
   }
   &__dialog-categories-btn-wrp {
     width: 46px;
     height: 24px;
     margin-left: 10px;
-    background-color: #DDDDDD;
+    background-color: #dddddd;
     border-radius: 12px;
     position: relative;
   }
@@ -87,10 +175,11 @@ export default {
     left: 1px;
     border-radius: 50%;
   }
-  &__dialog-categories-btn-line-r, &__dialog-categories-btn-line-l {
+  &__dialog-categories-btn-line-r,
+  &__dialog-categories-btn-line-l {
     height: 2px;
     width: 15px;
-    background-color: #DDDDDD;
+    background-color: #dddddd;
     position: absolute;
     top: 10px;
     left: 3px;
@@ -105,15 +194,82 @@ export default {
     padding: 0 16px;
     @include flexCentrJust;
     justify-content: space-between;
+    border: 1px solid $mainColor;
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    background-color: $colorWhite;
+    z-index: 1000;
+    position: relative;
   }
   &__dialog-categories-btn-subcate {
     @include flexCent;
     text-transform: initial;
-
   }
   &__dialog-categories-head-text {
     color: $mainColor;
     font-weight: 400;
   }
+  &__list-parent {
+    padding-left: 12px;
+    position: relative;
+  }
+  &__list-wrp {
+    padding-left: 5px;
+    z-index: 5;
+  }
+  &__list-children {
+    padding-left: 9px;
+    position: relative;
+    border-left: 1px solid $backgroundColorNav;
+    display: flex;
+    flex-direction: column;
+    &::before {
+      content: "";
+      width: 29px;
+      height: 1px;
+      position: absolute;
+      top: 32px;
+      left: -1px;
+      background-color: $backgroundColorNav;
+    }
+    &:last-child::after {
+      content: "";
+      width: 2px;
+      position: absolute;
+      top: 33px;
+      bottom: 0;
+      left: -1px;
+      background-color: $colorWhite;
+    }
+  }
+  &__list-btn {
+    margin-right: 8px;
+    @include btnPlus;
+    position: absolute;
+    background-color: #ffffff;
+    border: 1px solid $mainColor;
+  }
+  &__list-btn-text {
+    padding-left: 36px;
+  }
+  &__wrp-li-btn {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    &::before {
+      content: "";
+      width: 1px;
+      height: 32px;
+      position: absolute;
+      top: -20px;
+      left: -1px;
+      background-color: $backgroundColorNav;
+    }
+  }
+}
+
+.lineVertical {
+  border-left: 1px solid $backgroundColorNav;
+  padding-left: 9px;
 }
 </style>

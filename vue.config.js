@@ -4,7 +4,11 @@ function resolve(dir) {
     return path.resolve(__dirname, dir);
 }
 
+const basePath = "/brands/";
+
 module.exports = {
+    filenameHashing: process.env.NODE_ENV === "development",
+    publicPath: process.env.NODE_ENV === "production" ? basePath : "/",
     css: {
         loaderOptions: {
             sass: {
