@@ -2,43 +2,57 @@
   <div>
     <div class="nav-brand-markup">
       <div class="nav-brand-markup__wrp">
-        <router-link
-          :to="{ name: 'exportMargin' }"
-          class="nav-brand-markup__btn"
-        >
+        <div @click="page = pages.export" class="nav-brand-markup__btn">
           <p>Наценка на экспорт</p>
-        </router-link>
-        <router-link :to="{ name: 'myBrand' }" class="nav-brand-markup__btn">
+        </div>
+        <div @click="page = pages.brand" class="nav-brand-markup__btn">
           <p>Наценка на бренд</p>
-        </router-link>
-        <router-link
-          :to="{ name: 'markupPerCategory' }"
-          class="nav-brand-markup__btn"
-        >
+        </div>
+        <div @click="page = pages.markUp" class="nav-brand-markup__btn">
           <p>Наценка на категорию</p>
-        </router-link>
+        </div>
       </div>
     </div>
-    <router-view> </router-view>
+    <my-brand v-if="page === pages.brand" />
+    <export-margin v-if="page === pages.export" />
+    <markup-per-category v-if="page === pages.markUp" />
     <btn-save></btn-save>
   </div>
 </template>
 
 <script>
+
+import myBrand from './myBrand.vue'
+import exportMargin from './exportMargin.vue'
+import markupPerCategory from './markupPerCategory.vue'
+
+
 import btnSave from './UI/btnSave.vue'
 export default {
   name: "myNavBrand",
   components: {
-    btnSave
+    btnSave,
+    myBrand, 
+    exportMargin,
+    markupPerCategory
   },
   data(){
     return {
+      pages: {
+        brand: 0,
+        export: 1,
+        markUp: 2
+      },
+      page: 0,
       isActiveExport: true,
       isActiveBrand: false,
-      isActivecategory: false
+      isActivecategory: false,
     }
   },
   methods: {
+    brand() {
+
+    }
   }
 };
 </script>
@@ -69,7 +83,7 @@ export default {
   }
 }
 
-.router-link-active {
+.div-active {
   @include navBtnAct;
   transition: 0.3s ease-in;
 }

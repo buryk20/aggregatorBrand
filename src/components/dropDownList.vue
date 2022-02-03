@@ -7,7 +7,11 @@
       <!-- </div> -->
       <div class="drop-dawn-list__wrp-list-container">
         <ul class="drop-dawn-list__list">
-          <tree-item v-for="item of exportMargins" :key="item.id" :value="item">
+          <tree-item
+            v-for="(item, index) of exportMargins"
+            :key="index"
+            :value="item"
+          >
           </tree-item>
         </ul>
       </div>
@@ -23,7 +27,17 @@ export default {
     data() {
       return {
         exportMargins: [
-            {id:Math.round(Math.random() * (1 - 200) + 1), title: "Обычный экспорт", children: ["li Обычный экспорт", "li1 Обычный экспорт", "li2 Обычный экспорт"]},
+            // {
+            //   "Обычный экспорт",
+            //   margin: {
+            //     val: -19,
+            //     type: 1
+            //   },
+            //   children: [{id:1, name:"li Обычный экспорт", margin: {
+            //     val: -19,
+            //     type: 2
+            //   }} ]
+            // },
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт prom", children: ["li Обычный экспорт", "li1 Обычный экспорт"]},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka", children: ["li розетка"]},
             {id:Math.round(Math.random() * (1 - 200) + 1), title: "экспорт rozetka"},

@@ -51,7 +51,7 @@ export default {
           title: "Грн",
           value: 2,
         },
-        { id: 3, title: "%", value: 3 },
+        { id: 3, title: "-%", value: 3 },
         { id: 4, title: "-Грн", value: 4 },
       ],
       selected: "2",
