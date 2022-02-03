@@ -65,7 +65,7 @@ export default {
     height: 34px;
     @include flexCent;
     //   align-items: baseline;
-    border: $borderBlock;
+    border: 1px solid $colorGrey;
     border-radius: $borderRadius;
   }
   &__list-source-wrp {

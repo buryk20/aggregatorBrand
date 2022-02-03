@@ -6,6 +6,7 @@ $colorWhite: #ffffff;
 $backgroundColorNav: #8bbfbb;
 $backgroundColorNavBtnAct: #f7f9fa;
 $backgroundColorHov: #d8ebe9;
+$colorGrey: #9E9E9E;
 $colorRed: #aa3c3c;
 $borderRadius: 8px;
 $magButt: 16px;
@@ -54,7 +55,7 @@ $borderBlock: 1px solid $backgroundColorNav;
 }
 
 @mixin navBtn {
-  height: 31px;
+  height: 32px;
   padding: 0 8px;
   @include flexCentrJust;
   border-radius: $borderRadius;

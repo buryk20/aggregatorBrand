@@ -3,6 +3,20 @@
     <button @click="showDial" class="markup-category__btn">
       Выбор категории
     </button>
+    <div class="markup-category-cont">
+      <div class="markup-category-cont__wrp-block">
+        <div class="markup-category-cont__url-block">
+          <btn-delete> </btn-delete>
+          <div class="markup-category-cont__url"><p>sdcs</p></div>
+          <button @click="showDial" class="brand-margin__total-brend-btn">
+            Выбор экспорта
+          </button>
+        </div>
+        <div class="markup-category-cont__wrp-option">
+          <btn-plus></btn-plus>
+        </div>
+      </div>
+    </div>
     <dialog-export v-model:showDialog="dialogVisible">
       <div class="markup-category__dialog-categories-wrp">
         <div class="markup-category__dialog-categories-head">
@@ -116,27 +130,31 @@
 </template>
 
 <script>
+import btnPlus from "./UI/btnPlus.vue";
 export default {
-    name: 'markupPerCategory',
-    data() {
-      return {
-        isActive: false,
-        dialogVisible: false
+  name: "markupPerCategory",
+  components: {
+    btnPlus,
+  },
+  data() {
+    return {
+      isActive: false,
+      dialogVisible: false,
+    };
+  },
+  methods: {
+    show() {
+      if (this.isActive) {
+        this.isActive = false;
+      } else {
+        this.isActive = true;
       }
     },
-    methods: {
-      show() {
-        if(this.isActive) {
-          this.isActive = false
-        } else {
-          this.isActive = true
-        }
-      },
-      showDial() {
-        this.dialogVisible = true
-        }
-      }
-}
+    showDial() {
+      this.dialogVisible = true;
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -147,6 +165,7 @@ export default {
   &__btn {
     width: 389px;
     height: 48px;
+    margin-bottom: 24px;
     @include flexCentrJust;
     background-color: $mainColor;
     color: $colorWhite;
@@ -215,6 +234,10 @@ export default {
   }
   &__list-wrp {
     padding-left: 5px;
+    border: 1px solid $mainColor;
+    border-top: 0;
+    border-bottom-left-radius: $borderRadius;
+    border-bottom-right-radius: $borderRadius;
     z-index: 5;
   }
   &__list-children {
@@ -265,6 +288,39 @@ export default {
       left: -1px;
       background-color: $backgroundColorNav;
     }
+  }
+}
+
+.markup-category-cont {
+  @include contentGrid;
+  @include magCent;
+  border: 1px solid $backgroundColorNav;
+  border-radius: $borderRadius;
+  &__wrp-block {
+    padding: 9px 11px;
+    width: 100%;
+    display: flex;
+    align-items: baseline;
+  }
+  &__url {
+    max-width: 272px;
+    width: 100%;
+    height: 36px;
+    padding: 0 9px;
+    border-radius: $borderRadius;
+    border: 1px solid $colorGrey;
+    @include flexCent;
+  }
+  &__wrp-option {
+    position: relative;
+    display: flex;
+  }
+  &__url-block {
+    max-width: 480px;
+    width: 100%;
+    margin-right: 38px;
+    @include flexCent;
+    justify-content: space-between;
   }
 }
 
