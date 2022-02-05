@@ -15,6 +15,11 @@ export default {
   opacity: 0;
   &__text {
     @include textUpper;
+    padding-left: 10px;
+  }
+
+  &__text-style {
+    padding-left: 10px;
   }
 }
 .checkbox-wrp {

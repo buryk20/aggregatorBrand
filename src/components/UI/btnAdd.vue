@@ -30,7 +30,7 @@ export default {
         } else {
           this.isActive = true;
           this.isActiveHover = true;
-          this.textBtnDel = 'Убрать'
+          this.textBtnDel = 'Удалить'
           this.$emit('textBtn', this.textBtnDel, this.isActiveHover)
         }
         
@@ -69,5 +69,9 @@ export default {
 .btnAddWrp {
   background-color: $backgroundColorHov;
   z-index: -1;
+}
+.btnDelete {
+  background-color: #aa3c3c;
+  display: block;
 }
 </style>

@@ -2,7 +2,10 @@
   <div>
     <div class="nav-brand-markup">
       <div class="nav-brand-markup__wrp">
-        <div @click="page = pages.export" class="nav-brand-markup__btn">
+        <div
+          @click="(page = pages.export), isActiveExport(page)"
+          class="nav-brand-markup__btn div-active"
+        >
           <p>Наценка на экспорт</p>
         </div>
         <div @click="page = pages.brand" class="nav-brand-markup__btn">
@@ -43,15 +46,15 @@ export default {
         export: 1,
         markUp: 2
       },
-      page: 0,
+      page: 1,
       isActiveExport: true,
       isActiveBrand: false,
       isActivecategory: false,
     }
   },
   methods: {
-    brand() {
-
+    isActiveExport(page) {
+      console.log(page);
     }
   }
 };
@@ -77,6 +80,7 @@ export default {
   &__btn {
     @include navBtn;
     transition: 0.3s ease-out;
+    cursor: pointer;
   }
   &__btn + &__btn {
     margin-left: 15px;

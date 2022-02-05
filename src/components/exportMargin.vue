@@ -13,8 +13,8 @@
           />
         </my-checkbox>
         <label class="custom-checkbox__text" for="checkbox"
-          >Выбрать все экспорты</label
-        >
+          ><p class="custom-checkbox__text-style">Выбрать все экспорты</p>
+        </label>
       </div>
 
       <div v-if="checkbox" class="export-margin__btn-pus-wrp">
@@ -24,9 +24,7 @@
     <div class="export-margin__margin">
       <h2 class="export-margin__title">Наценка</h2>
       <div class="export-margin__container">
-        <export-margin-item v-bind:exportBrs="exportBrs"
-
-        ></export-margin-item>
+        <export-margin-item v-bind:exportBrs="exportBrs"></export-margin-item>
       </div>
     </div>
   </div>

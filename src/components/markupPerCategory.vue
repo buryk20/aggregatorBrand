@@ -173,7 +173,7 @@ export default {
     border-radius: $borderRadius;
   }
   &__dialog-categories-wrp {
-    width: 1312px;
+    width: 100%;
     font-size: 17px;
     text-transform: uppercase;
   }
@@ -229,7 +229,7 @@ export default {
     font-weight: 400;
   }
   &__list-parent {
-    padding-left: 12px;
+    padding-left: 11px;
     position: relative;
   }
   &__list-wrp {
@@ -241,7 +241,7 @@ export default {
     z-index: 5;
   }
   &__list-children {
-    padding-left: 9px;
+    padding-left: 27px;
     position: relative;
     border-left: 1px solid $backgroundColorNav;
     display: flex;

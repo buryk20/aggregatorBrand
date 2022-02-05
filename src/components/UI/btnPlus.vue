@@ -27,7 +27,11 @@
         </select>
       </div>
     </div>
-    <div @click="addField" class="btn-plus">
+    <div
+      @click="addField"
+      :class="{ btnPlusNone: isActiveBtnPlus }"
+      class="btn-plus"
+    >
       <span class="btn-plus__dash-left"></span>
       <span class="btn-plus__dash-right"></span>
     </div>
@@ -56,6 +60,7 @@ export default {
       ],
       selected: "2",
       btnsPlus: [{ id: 1 }],
+      isActiveBtnPlus: false
     };
   },
   props: {
@@ -70,6 +75,8 @@ export default {
       };
       if (this.btnsPlus.length <= 2) {
         this.btnsPlus.push(newFiled);
+      } if (this.btnsPlus.length === 3) {
+        this.isActiveBtnPlus = true
       }
     },
     del(btnPlus){
@@ -77,7 +84,9 @@ export default {
       if(this.btnsPlus.length > 1) {
         this.btnsPlus = this.btnsPlus.filter(p => p.id !== btnPlus.id)
       }
-      
+      if (this.btnsPlus.length < 3) {
+        this.isActiveBtnPlus = false
+      }
       
     }
   }
@@ -161,5 +170,9 @@ option {
 
 .isDisable {
   opacity: 0.5;
+}
+
+.btnPlusNone {
+  display: none;
 }
 </style>

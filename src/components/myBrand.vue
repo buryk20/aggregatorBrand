@@ -250,8 +250,8 @@ export default {
     height: 2px;
     background-color: $colorRed;
     transform: rotate(45deg);
-    top: 10px;
-    left: 4px;
+    top: 9px;
+    left: 3px;
   }
   &__tag-dropdown-btn-line-l {
     position: absolute;
@@ -259,8 +259,8 @@ export default {
     height: 2px;
     background-color: $colorRed;
     transform: rotate(-45deg);
-    top: 10px;
-    left: 4px;
+    top: 9px;
+    left: 3px;
   }
   &__tag-dropdown-item-wrp {
     border: 1px solid $backgroundColorNav;

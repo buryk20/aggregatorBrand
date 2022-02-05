@@ -29,11 +29,13 @@ export default {
   bottom: 0;
   right: 0;
   left: 0;
+  padding: 0 16px;
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: flex;
   z-index: 101;
   &__content {
+    width: 100%;
     margin: auto;
     background-color: $colorWhite;
     border-radius: $borderRadius;

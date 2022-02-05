@@ -132,7 +132,7 @@ export default {
       width: 2px;
       top: 32px;
       bottom: 0;
-      left: -1px;
+      left: -2px;
       background-color: $colorWhite;
     }
   }
@@ -196,7 +196,7 @@ export default {
       position: absolute;
       height: 20px;
       top: -20px;
-      left: -1px;
+      left: -2px;
       background-color: $backgroundColorNav;
       @include flexCent;
     }
@@ -206,7 +206,7 @@ export default {
       width: 2px;
       top: 33px;
       bottom: 0;
-      left: -1px;
+      left: -2px;
       background-color: $colorWhite;
     }
     &:hover {
