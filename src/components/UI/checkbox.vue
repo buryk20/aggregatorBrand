@@ -1,10 +1,39 @@
 <template>
-  <slot></slot>
+  <input
+    type="checkbox"
+    class="custom-checkbox"
+    v-bind:id="arrBrs"
+    v-model="checkboxExport"
+    @click="isActivCheckBox"
+  />
+  <label v-bind:for="arrBrs"></label>
 </template>
 
 <script>
 export default {
-    name: 'myCheckbox'
+    name: 'myCheckbox',
+    data(){
+      return {
+          myCheckboxExport: true,
+          myCheckbox: false
+      }
+    },
+    props: {
+      arrBrs: Number
+    },
+    methods: {
+      isActivCheckBox(){
+        if(this.myCheckboxExport) {
+          this.myCheckbox = true;
+          this.myCheckboxExport = false;
+          this.$emit('myCheckbox', this.myCheckbox)
+        } else {
+          this.myCheckbox = false;
+          this.myCheckboxExport = true;
+          this.$emit('myCheckbox', this.myCheckbox)
+        }
+      }
+  }
 }
 </script>
 

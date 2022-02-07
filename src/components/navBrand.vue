@@ -3,7 +3,10 @@
     <div class="nav-brand-markup">
       <div class="nav-brand-markup__wrp">
         <div
-          @click="(page = pages.export), isActiveExport(page)"
+          @click="
+            page = pages.export;
+            isActiveExport(page);
+          "
           class="nav-brand-markup__btn div-active"
         >
           <p>Наценка на экспорт</p>

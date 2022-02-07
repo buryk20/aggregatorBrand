@@ -13,9 +13,14 @@
         type="number"
         name="margin"
         placeholder="1000"
+        :disabled="checkbox"
       />
       <div>
-        <select class="margin__list-wrp" v-model="selected">
+        <select
+          :disabled="checkbox"
+          class="margin__list-wrp"
+          v-model="selected"
+        >
           <option
             v-for="item in items"
             v-bind:key="item.id"
@@ -29,6 +34,7 @@
     </div>
     <div
       @click="addField"
+      :disabled="checkbox"
       :class="{ btnPlusNone: isActiveBtnPlus }"
       class="btn-plus"
     >
@@ -70,24 +76,27 @@ export default {
   },
   methods: {
     addField() {
-      const newFiled = {
-        id: Math.round(Math.random() * (1 - 200) + 1),
-      };
-      if (this.btnsPlus.length <= 2) {
-        this.btnsPlus.push(newFiled);
-      } if (this.btnsPlus.length === 3) {
-        this.isActiveBtnPlus = true
-      }
+      if(!this.checkbox) {
+        const newFiled = {
+          id: Math.round(Math.random() * (1 - 200) + 1),
+        };
+        if (this.btnsPlus.length <= 2) {
+          this.btnsPlus.push(newFiled);
+        } if (this.btnsPlus.length === 3) {
+          this.isActiveBtnPlus = true
+        }
+      }  
     },
     del(btnPlus){
-      console.log(this.btnsPlus.length);
-      if(this.btnsPlus.length > 1) {
-        this.btnsPlus = this.btnsPlus.filter(p => p.id !== btnPlus.id)
+      if(!this.checkbox) {
+        console.log(this.btnsPlus.length);
+        if(this.btnsPlus.length > 1) {
+          this.btnsPlus = this.btnsPlus.filter(p => p.id !== btnPlus.id)
+        }
+        if (this.btnsPlus.length < 3) {
+          this.isActiveBtnPlus = false
+        }
       }
-      if (this.btnsPlus.length < 3) {
-        this.isActiveBtnPlus = false
-      }
-      
     }
   }
 };

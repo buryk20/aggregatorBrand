@@ -1,16 +1,9 @@
 <template>
-  <div v-for="exportBr of exportBrs"
-          :key="exportBr.id" class="margim-item">
+  <div v-for="exportBr of exportBrs" :key="exportBr.id" class="margim-item">
     <div class="margim-item__list">
       <div class="margim-item__list-source-wrp">
-        <input
-          type="checkbox"
-          class="custom-checkbox"
-          v-bind:id="exportBr.id"
-          v-model="checkboxExport"
-          @click="isActivCheckBox"
-        />
-        <label  v-bind:for="exportBr.id"></label>
+        <my-checkbox @myCheckbox="myCheck" v-bind:arrBrs="exportBr.id">
+        </my-checkbox>
         <div><btn-delete> </btn-delete></div>
         <div class="margim-item__list-source">
           <p class="margim-item__list-source-text">dfscvdfv</p>
@@ -29,7 +22,6 @@ export default {
   },
   data() {
       return {
-          checkboxExport: true,
           checkbox: false
       }
   },
@@ -37,14 +29,9 @@ export default {
     exportBrs: Array
   },
   methods: {
-      isActivCheckBox(){
-        console.log(this.checkboxExport);
-        if(this.checkboxExport) {
-          this.checkbox = true
-        } else {
-          this.checkbox = false
-        }
-      }
+    myCheck(myCheckbox) {
+      this.checkbox = myCheckbox
+    }
   }
 };
 </script>
