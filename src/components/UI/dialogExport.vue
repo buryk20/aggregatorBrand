@@ -35,7 +35,7 @@ export default {
   display: flex;
   z-index: 101;
   &__content {
-    width: 100%;
+    width: auto;
     margin: auto;
     background-color: $colorWhite;
     border-radius: $borderRadius;

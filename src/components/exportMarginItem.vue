@@ -63,8 +63,8 @@ export default {
     max-width: 272px;
     width: 100%;
     height: 34px;
+    // margin-right: 5px;
     @include flexCent;
-    //   align-items: baseline;
     border: 1px solid $colorGrey;
     border-radius: $borderRadius;
   }
