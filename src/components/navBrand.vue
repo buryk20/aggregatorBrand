@@ -5,16 +5,31 @@
         <div
           @click="
             page = pages.export;
-            isActiveExport(page);
+            isActiv(page);
           "
-          class="nav-brand-markup__btn div-active"
+          :class="{ divActive: isActiveExport }"
+          class="nav-brand-markup__btn"
         >
           <p>Наценка на экспорт</p>
         </div>
-        <div @click="page = pages.brand" class="nav-brand-markup__btn">
+        <div
+          @click="
+            page = pages.brand;
+            isActiv(page);
+          "
+          :class="{ divActive: isActiveBrand }"
+          class="nav-brand-markup__btn"
+        >
           <p>Наценка на бренд</p>
         </div>
-        <div @click="page = pages.markUp" class="nav-brand-markup__btn">
+        <div
+          @click="
+            page = pages.markUp;
+            isActiv(page);
+          "
+          :class="{ divActive: isActivecategory }"
+          class="nav-brand-markup__btn"
+        >
           <p>Наценка на категорию</p>
         </div>
       </div>
@@ -56,8 +71,24 @@ export default {
     }
   },
   methods: {
-    isActiveExport(page) {
+    isActiveExport() {
+      console.log('sde');
+    },
+    isActiv(page){
       console.log(page);
+      if(page === 1) {
+        this.isActiveExport = true;
+        this.isActiveBrand = false;
+        this.isActivecategory = false;
+      } else if(page === 0) {
+        this.isActiveExport = false;
+        this.isActiveBrand = true;
+        this.isActivecategory = false;
+      } else if(page === 2) {
+        this.isActiveExport = false;
+        this.isActiveBrand = false;
+        this.isActivecategory = true;
+      }
     }
   }
 };
@@ -90,7 +121,7 @@ export default {
   }
 }
 
-.div-active {
+.divActive {
   @include navBtnAct;
   transition: 0.3s ease-in;
 }

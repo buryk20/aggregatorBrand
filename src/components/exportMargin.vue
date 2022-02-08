@@ -4,14 +4,12 @@
       <h2 class="export-margin__title">Выгрузки</h2>
       <drop-down-list></drop-down-list>
       <div class="checkbox-wrp">
-        <my-checkbox>
-          <input
-            type="checkbox"
-            class="custom-checkbox"
-            id="checkbox"
-            v-model="checkbox"
-          />
-        </my-checkbox>
+        <input
+          type="checkbox"
+          class="custom-checkbox"
+          id="checkbox"
+          v-model="checkbox"
+        />
         <label class="custom-checkbox__text" for="checkbox"
           ><p class="custom-checkbox__text-style">Выбрать все экспорты</p>
         </label>

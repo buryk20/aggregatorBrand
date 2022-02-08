@@ -45,6 +45,7 @@ export default {
     margin-bottom: 5px;
     @include flexCent;
     align-items: baseline;
+    flex-wrap: wrap;
   }
   &__list-source {
     max-width: 272px;

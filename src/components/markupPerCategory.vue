@@ -8,7 +8,7 @@
         <div class="markup-category-cont__url-block">
           <btn-delete> </btn-delete>
           <div class="markup-category-cont__url"><p>sdcs</p></div>
-          <button @click="showDial" class="brand-margin__total-brend-btn">
+          <button @click="showDialExport" class="brand-margin__total-brend-btn">
             Выбор экспорта
           </button>
         </div>
@@ -17,13 +17,23 @@
         </div>
       </div>
     </div>
+    <dialog-export
+      v-model:showDialogExport="isActivDialogExport"
+      @showDialogExport="showDialogEx"
+    >
+      <btn-close-dialog
+        class="bnt-style-close"
+        v-model:showDialog="isActivDialogExport"
+      ></btn-close-dialog>
+      <drop-down-list></drop-down-list>
+    </dialog-export>
     <dialog-export v-model:showDialog="dialogVisible">
       <div class="markup-category__dialog-categories-wrp">
         <div class="markup-category__dialog-categories-head">
           <h2 class="markup-category__dialog-categories-head-text">
             Выбор категории
           </h2>
-          <div class="markup-category__dialog-categories-btn-subcate">
+          <!-- <div class="markup-category__dialog-categories-btn-subcate">
             <p>Отобразить вложенность</p>
             <button class="markup-category__dialog-categories-btn-wrp">
               <div class="markup-category__dialog-categories-btn">
@@ -35,7 +45,7 @@
                 ></span>
               </div>
             </button>
-          </div>
+          </div> -->
           <btn-close-dialog
             v-model:showDialog="dialogVisible"
           ></btn-close-dialog>
@@ -130,16 +140,19 @@
 </template>
 
 <script>
+import dropDownList from './dropDownList.vue'
 import btnPlus from "./UI/btnPlus.vue";
 export default {
   name: "markupPerCategory",
   components: {
     btnPlus,
+    dropDownList
   },
   data() {
     return {
       isActive: false,
       dialogVisible: false,
+      isActivDialogExport: false
     };
   },
   methods: {
@@ -153,6 +166,14 @@ export default {
     showDial() {
       this.dialogVisible = true;
     },
+    showDialExport() {
+      console.log('dfv');
+      this.isActivDialogExport = true;
+    },
+    showDialogEx(showDialogExport){
+      console.log(showDialogExport);
+      this.isActivDialogExport = showDialogExport;
+    }
   },
 };
 </script>
@@ -173,7 +194,7 @@ export default {
     border-radius: $borderRadius;
   }
   &__dialog-categories-wrp {
-    width: 100%;
+    width: 735px;
     font-size: 17px;
     text-transform: uppercase;
   }
@@ -233,7 +254,7 @@ export default {
     position: relative;
   }
   &__list-wrp {
-    padding-left: 5px;
+    padding-left: 4px;
     border: 1px solid $mainColor;
     border-top: 0;
     border-bottom-left-radius: $borderRadius;

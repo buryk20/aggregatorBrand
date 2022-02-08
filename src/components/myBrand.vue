@@ -125,6 +125,10 @@
     </div>
 
     <dialog-export v-model:showDialog="dialogVisible">
+      <btn-close-dialog
+        class="bnt-style-close"
+        v-model:showDialog="dialogVisible"
+      ></btn-close-dialog>
       <drop-down-list></drop-down-list>
     </dialog-export>
   </div>
@@ -325,6 +329,11 @@ export default {
     height: 1px;
     background-color: $backgroundColorNav;
   }
+}
+.bnt-style-close {
+  position: absolute;
+  right: 16px;
+  top: 9px;
 }
 .isActivDropdown {
   display: block;

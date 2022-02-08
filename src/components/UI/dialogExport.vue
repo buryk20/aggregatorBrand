@@ -1,5 +1,9 @@
 <template>
-  <div class="dialog" v-if="showDialog || showDialogCat" @click.="hideDialog">
+  <div
+    class="dialog"
+    v-if="showDialog || showDialogCat || showDialogExport"
+    @click.="hideDialog"
+  >
     <div @click.stop class="dialog__content">
       <slot></slot>
     </div>
@@ -13,11 +17,16 @@ export default {
         showDialog: {
             type: Boolean,
             default: false
+        },
+        showDialogExport: {
+          type: Boolean,
+          default: false
         }
     },
     methods: {
         hideDialog(){
-            this.$emit('update:showDialog', false)
+            this.$emit('update:showDialog', false);
+            this.$emit('update:showDialogExport', false)
         }
     }
 }
@@ -37,6 +46,7 @@ export default {
   &__content {
     width: auto;
     margin: auto;
+    position: relative;
     background-color: $colorWhite;
     border-radius: $borderRadius;
   }

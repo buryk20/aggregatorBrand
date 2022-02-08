@@ -1,6 +1,8 @@
 <template>
   <div class="drop-dawn-list">
-    <h2 class="drop-dawn-list__title">Выберите экспорт</h2>
+    <div class="drop-dawn-list__title">
+      <h2 class="drop-dawn-list__title-text">Выберите экспорт</h2>
+    </div>
     <div class="drop-dawn-list__wrp-list">
       <!-- <div class="drop-dawn-list__vertical-line-wrp"> -->
       <div class="drop-dawn-list__vertical-line"></div>
@@ -20,6 +22,7 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from "vuex"
 import treeItem from './treeItem.vue';
 export default {
     name: "dropDownList",
@@ -49,8 +52,14 @@ export default {
         ],
         isActive: false,
         currentId: -1,
-        examination: 0
+        examination: 0,
+        dialogVisible: false
       }
+    },
+    computed: {
+      ...mapGetters({
+        list: 'getTreeExport,'
+      })
     },
     methods: {
         click(btnId){
@@ -78,14 +87,19 @@ export default {
     width: 100%;
     height: 40px;
     padding-left: 16px;
+    padding-right: 16px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     font-size: 17px;
     text-transform: uppercase;
     font-weight: 400;
     border: 1px solid $mainColor;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
+  }
+  &__title-text {
+    font-size: 17px;
   }
   &__wrp-list {
     width: 449px;
